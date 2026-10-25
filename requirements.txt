@@ -1,0 +1,11 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+pydantic>=2.9
+requests>=2.32
+openai>=1.51
+pillow>=10.4
+pymupdf>=1.24
+python-dotenv>=1.0
+streamlit>=1.38
+pandas>=2.2
