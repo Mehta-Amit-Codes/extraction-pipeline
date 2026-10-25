@@ -1,5 +1,7 @@
 # Structured Extraction Pipeline at Scale
 
+[![Diagram](https://img.shields.io/badge/gitdiagram-view%20architecture-blue)](https://gitdiagram.com/mehta-amit-codes/extraction-pipeline)
+
 Batch-extract structured records (invoices here) from thousands of document images/PDFs with a vision model, and
 make the output **reliable enough to use**: retries and a dead-letter queue, layered confidence scoring, a human review
 loop, an active-learning loop that feeds corrections back into the prompt, and drift monitoring that notices when the
