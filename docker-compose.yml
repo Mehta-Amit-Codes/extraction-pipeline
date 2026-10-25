@@ -1,0 +1,26 @@
+services:
+  api:
+    build: .
+    environment:
+      PIPELINE_DB: /data/pipeline.db
+      DATA_DIR: /data/files
+      EXTRACTOR: ${EXTRACTOR:-simulated}
+      GROK_API_KEY: ${GROK_API_KEY:-}
+      EMBEDDED_WORKERS: ${EMBEDDED_WORKERS:-2}
+      API_KEY: ${API_KEY:-}
+    volumes:
+      - pipeline_data:/data
+    ports:
+      - "8006:8006"
+
+  ui:
+    build: .
+    command: streamlit run streamlit_app.py --server.port 8501 --server.address 0.0.0.0
+    environment:
+      EXTRACTION_API_URL: http://api:8006
+    depends_on: [api]
+    ports:
+      - "8501:8501"
+
+volumes:
+  pipeline_data:
